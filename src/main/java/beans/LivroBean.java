@@ -37,6 +37,27 @@ public class LivroBean implements Serializable {
 	    return "questao2Inicial.xhtml";
 	}
 
+	
+	public String removerLivro() {
+		listaLivro.add(livro);
+		
+		livro = new Livro();
+	    
+	    addMessagem("Success", "Novo livro salvo");
+	     
+	    return "questao2Inicial.xhtml";
+	}
+	
+	public String editarLivro() {
+		listaLivro.add(livro);
+		
+		livro = new Livro();
+	    
+	    addMessagem("Success", "Novo livro salvo");
+	     
+	    return "questao2Inicial.xhtml";
+	}
+	
 	private void addMessagem(String string, String string2) {
 		// TODO Auto-generated method stub
 		
