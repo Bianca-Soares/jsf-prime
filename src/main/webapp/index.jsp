@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%@ include file="/index.xhtml"%>
+<a href="questao1.xhtml">Questão 1</a>
 </body>
 </html>
