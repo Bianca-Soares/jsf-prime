@@ -27,6 +27,7 @@ public class LivroBean implements Serializable {
 	public LivroBean() {
 		formatarData(dataLan);
 		this.listaLivro.add(new Livro("As aventuras","1233", "12", dataLan ));
+		livro= new Livro();
 	}
 	
 	private void formatarData(Date dataLan2) {
@@ -51,12 +52,14 @@ public class LivroBean implements Serializable {
 	public String removerLivro() {
 		listaLivro.remove(livro);
 	     
+		livro= new Livro();
 	    return "questao2Inicial.xhtml";
 	}
 	
 	public String alterarLivro() {
 		listaLivro.remove(livro);
 	     
+		livro= new Livro();
 	    return "questao2Inicial.xhtml";
 	}
 	
