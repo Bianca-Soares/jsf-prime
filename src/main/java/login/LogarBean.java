@@ -6,7 +6,7 @@ import javax.faces.context.FacesContext;
 import javax.inject.Named;
 import javax.servlet.http.HttpSession;
 
-@Named("/")
+@Named("/logar")
 @RequestScoped
 public class LogarBean {
 
