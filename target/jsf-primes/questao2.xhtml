@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Cadastrar novo usuário</title>
+	<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+	<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+<style type="text/css">
+#imglogo {
+	
+	left:100%;
+	top:50%;
+	}
+</style>
+</h:head>
+
+<h:body>
+
+<div>
+<h:graphicImage library="images" name="https://pt.wikipedia.org/wiki/Instituto_Federal_do_Par%C3%A1#/media/Ficheiro:Instituto_Federal_do_Par%C3%A1_-_Marca_Vertical_2015.svg" width="120" height="120" alt="logo ifpa" id="imglogo" />
+	<img src="img/logoIfpa.jpg" id="imglogo"></img>
+	
+</div>		
+	<h:form id="formulario">
+	<p:commandButton id="lnkLogout"
+       style="color: black; font-size: 14px"
+       value="Logout"
+       action="#{logarBean.logout}" icon="fas fa-sign-out-alt"
+       ajax="false">
+ </p:commandButton>
+		<p:panel header="Cadastrar novo Livro">
+			<p:panelGrid columns="2" cellpadding="5">
+			
+				<h:outputText for="titulo" value="Título:" />
+					<p:inputText id="titulo" label="Título" value="#{livroBean.livro.titulo}"
+					size="50" maxlength="50" required="true" />
+				
+				<h:outputText for="ISBN" value="ISBN:" />
+					<p:inputText id="ISBN" label="ISBN" value="#{livroBean.livro.ISBN}"
+					size="50" maxlength="50" required="true" />	
+
+				<h:outputText for="preco" value="Preço:" />
+					<p:inputNumber id="preco" value="#{livroBean.livro.preco}" required="true" />
+ 
+ 				
+ 				<h:outputText for="dataLan" value="Data de Lançamento:" />
+					<p:calendar label="Data" id="dataLan" value="#{livroBean.livro.dataLan}" required="true"/>
+					
+			</p:panelGrid>
+			
+			<p:commandButton id="cadastrar" value="Cadastrar" icon="fas fa-save"
+				 title="cadastrar" update="listaLivro"
+				action="#{livroBean.addLivro}" />
+			
+			<p:commandButton value="Limpar" icon="fas fa-eraser" update="listaLivro" ajax="true" immediate="true" type="reset"/>
+			
+		</p:panel>
+
+	</h:form>
+
+
+	<h2>Lista de Livros</h2>
+	<p:dataTable id="listaLivro" value="#{livroBean.listaLivro}" var="a">
+		
+		<p:column headerText="Título">
+			<h:outputText id="titulo" value="#{a.titulo}" />
+		</p:column>
+
+		<p:column headerText="ISBN">
+			<h:outputText id="ISBN" value="#{a.ISBN}" />
+		</p:column>
+		
+		<p:column headerText="Preço">
+			<h:outputText id="preco" value="#{a.preco}" />
+		</p:column>
+		
+		<p:column headerText="Data de Lançamento">
+			<h:outputText id="dataLan" value="#{a.dataLan}" />
+		</p:column>
+		
+		<p:column headerText="Alterar">
+			<p:commandButton id="alterar" value="Alterar" icon="far fa-edit"
+				 title="alterar" update="listaLivro"
+				action="#{livroBean.alterarLivro}" />
+		</p:column>
+		
+		<p:column headerText="Remover">
+			<p:commandButton id="remover" value="Remover" icon="far fa-calendar-times"
+				 title="remover" update="listaLivro"
+				action="#{livroBean.removerLivro}" />
+		</p:column>
+
+	</p:dataTable>
+
+	
+	
+</h:body>
+</html>

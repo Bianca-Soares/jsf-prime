@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Cadastrar novo usuário</title>
+	<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+	<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+	<style>
+
+	</style>
+</h:head>
+<h:body>
+
+	<h:form id="formulario">
+		<p:panel header="Cadastrar novo usuário">
+			<p:panelGrid columns="2" cellpadding="5">
+			
+				<h:outputText for="nome" value="Nome:" />
+					<p:inputText id="nome" label="Nome" value="#{usuarioBean.usuario.nome}"
+					size="50" maxlength="50" required="true" />
+				
+				<h:outputText for="usuarioNome" value="Usuario:" />
+					<p:inputText id="usuarioNome" label="Usuario" value="#{usuarioBean.usuario.usuarioNome}"
+					size="50" maxlength="50" required="true" />	
+
+				<h:outputText for="senha" value="Senha:" />
+					<p:password id="senha" value="#{usuarioBean.usuario.senha}" required="true" />
+ 
+			</p:panelGrid>
+			
+			<p:commandButton id="cadastrar" value="Cadastrar" icon="fas fa-save"
+				 title="cadastrar" update="listaUsuarios"
+				action="#{usuarioBean.addUsuario}" />
+			
+			<p:commandButton value="Limpar" icon="fas fa-eraser" update="listaUsuarios" ajax="true" immediate="true" type="reset"/>
+			
+		</p:panel>
+
+	</h:form>
+
+
+	<h2>Lista de usuarios</h2>
+	<p:dataTable id="listaUsuarios" value="#{usuarioBean.listaUsuarios}" var="a">
+		
+		<p:column headerText="Nome do usuario">
+			<h:outputText id="nome" value="#{a.nome}" />
+			
+		</p:column>
+
+		<p:column headerText="Usuario">
+			<h:outputText id="usuarioNome" value="#{a.usuarioNome}" />
+		</p:column>
+
+	</p:dataTable>
+
+	
+	
+	
+</h:body>
+</html>
