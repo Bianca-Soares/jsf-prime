@@ -15,9 +15,11 @@
 	    <p:panelGrid columns="2" cellpadding="5">		
 			<h:outputText value="Nome: " />
 			<p:inputText id="nome" value="#{logarBean.nome}" />
+			<p:outputLabel for="@previous" value="admin" />
 
 			<h:outputText value="Senha: " />
 			<p:password id="senha" value="#{logarBean.senha}" />
+			<p:outputLabel for="@previous" value="admin" />
 		</p:panelGrid>
 
 		<p:messages autoUpdate="true" />
