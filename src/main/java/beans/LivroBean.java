@@ -48,7 +48,7 @@ public class LivroBean implements Serializable {
 	    return "questao2Inicial.xhtml";
 	}
 	
-	public String editarLivro() {
+	public String alterarLivro() {
 		listaLivro.add(livro);
 		
 		livro = new Livro();

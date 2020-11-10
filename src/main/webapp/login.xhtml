@@ -12,16 +12,19 @@
    <br>
    </br>
 	<h:form>
-	    <p:panelGrid columns="2" cellpadding="5">		
-			<h:outputText value="Nome: " />
-			<p:inputText id="nome" value="#{logarBean.nome}" />
-			<p:outputLabel for="@previous" value="admin" />
-
-			<h:outputText value="Senha: " />
-			<p:password id="senha" value="#{logarBean.senha}" />
-			<p:outputLabel for="@previous" value="admin" />
-		</p:panelGrid>
-
+	
+	  <h3>Nome: </h3>
+	   	<span class="ui-float-label">
+	       <p:inputText id="nome" value="#{logarBean.nome}" />
+	       <p:outputLabel for="@previous" value="admin" />
+	   </span>
+	   
+	    <h3>Senha: </h3>
+	   	<span class="ui-float-label">
+	       <p:inputText id="senha" value="#{logarBean.senha}" />
+	       <p:outputLabel for="@previous" value="admin" />
+	   </span>
+<br></br>
 		<p:messages autoUpdate="true" />
 		<p:commandButton value="Entrar" action="#{logarBean.logar}" ajax="false" />
 	</h:form>
