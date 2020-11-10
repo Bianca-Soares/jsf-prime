@@ -1,6 +1,7 @@
 package beans;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -19,15 +20,24 @@ public class LivroBean implements Serializable {
 	
 	private Livro livro= new Livro();
 	private List<Livro> listaLivro= new ArrayList<Livro>();
-	Date dataLan = new Date(System.currentTimeMillis());
+	Date dataLan = new Date();
 	Calendar cal = new GregorianCalendar();
 	
 	
 	public LivroBean() {
+		formatarData(dataLan);
 		this.listaLivro.add(new Livro("As aventuras","1233", "12", dataLan ));
 	}
 	
+	private void formatarData(Date dataLan2) {
+		String strData = "000";  
+	 
+		
+	}
+
 	public String addLivro() {
+		formatarData(dataLan);
+		
 		listaLivro.add(livro);
 		
 		livro = new Livro();
@@ -39,21 +49,13 @@ public class LivroBean implements Serializable {
 
 	
 	public String removerLivro() {
-		listaLivro.add(livro);
-		
-		livro = new Livro();
-	    
-	    addMessagem("Success", "Novo livro salvo");
+		listaLivro.remove(livro);
 	     
 	    return "questao2Inicial.xhtml";
 	}
 	
 	public String alterarLivro() {
-		listaLivro.add(livro);
-		
-		livro = new Livro();
-	    
-	    addMessagem("Success", "Novo livro salvo");
+		listaLivro.remove(livro);
 	     
 	    return "questao2Inicial.xhtml";
 	}
